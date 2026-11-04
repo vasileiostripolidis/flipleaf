@@ -11,6 +11,13 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/vasileiostripolidis/flipleaf/releases"><img src="https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fvasileiostripolidis.github.io%2Fflipleaf%2Fstats%2Fdownloads.json" alt="Downloads"></a>
+  <img src="https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fvasileiostripolidis.github.io%2Fflipleaf%2Fstats%2Fdownloads-windows.json" alt="Windows downloads">
+  <img src="https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fvasileiostripolidis.github.io%2Fflipleaf%2Fstats%2Fdownloads-macos.json" alt="macOS downloads">
+  <img src="https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fvasileiostripolidis.github.io%2Fflipleaf%2Fstats%2Fdownloads-linux.json" alt="Linux downloads">
+</p>
+
+<p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/stack-dark.png">
     <img src="./.github/assets/stack-light.png" height="34" alt="Tauri 2 · Rust · PDF.js · PDFium WASM · Free · All rights reserved">
