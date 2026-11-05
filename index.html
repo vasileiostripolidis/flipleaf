@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flipleaf</title>
+<meta name="description" content="Flipleaf — a feather-light, private PDF reader.">
+<meta name="theme-color" content="#14201a">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="vendor/pdfjs/web/pdf_viewer.css">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body class="no-doc">
+
+<header class="appbar" data-tauri-drag-region>
+<div class="brand" data-tauri-drag-region>
+<svg viewBox="0 0 64 64" width="20" height="20" aria-hidden="true"><use href="icon.svg#leaf"/></svg>
+</div>
+<nav class="menubar" role="menubar">
+<button role="menuitem" data-menu="file" data-i18n="mFile"></button>
+<button role="menuitem" data-menu="edit" data-i18n="mEdit"></button>
+<button role="menuitem" data-menu="view" data-i18n="mView"></button>
+<button role="menuitem" data-menu="tools" data-i18n="mTools"></button>
+<button role="menuitem" data-menu="help" data-i18n="mHelp"></button>
+</nav>
+<div class="doc-title" data-tauri-drag-region><span id="docTitle" data-tauri-drag-region>Flipleaf</span><span id="dirtyDot" class="dirty" hidden></span></div>
+<div class="winctl" id="winctl" hidden>
+<button id="wcMin" aria-label="Minimize"><i data-icon="minus" data-size="16"></i></button>
+<button id="wcMax" aria-label="Maximize"><i data-icon="square" data-size="13"></i></button>
+<button id="wcClose" class="close" aria-label="Close"><i data-icon="x" data-size="17"></i></button>
+</div>
+</header>
+
+<div class="toolbar doc-only">
+<div class="tgroup">
+<button class="btn icon" id="btnOpen" data-tip="open"><i data-icon="folder-open"></i></button>
+<button class="btn icon" id="btnSave" data-tip="save"><i data-icon="save"></i></button>
+</div>
+<div class="sep"></div>
+<div class="tgroup">
+<button class="btn icon" id="btnSidebar" data-tip="sidebar"><i data-icon="panel-left"></i></button>
+</div>
+<div class="sep"></div>
+<div class="tgroup" role="radiogroup" id="toolGroup">
+<button class="btn icon tool on" data-tool="select" data-tip="toolSelect"><i data-icon="mouse-pointer-2"></i></button>
+<button class="btn icon tool" data-tool="hand" data-tip="toolHand"><i data-icon="hand"></i></button>
+<div class="sep"></div>
+<button class="btn accent" id="btnEditPdf" data-tip="editPdf"><i data-icon="file-pen-line"></i><span data-i18n="editShort"></span></button>
+<div class="sep"></div>
+<button class="btn icon tool" data-tool="highlight" data-tip="toolHighlight"><i data-icon="highlighter"></i></button>
+<button class="btn icon tool" data-tool="ink" data-tip="toolDraw"><i data-icon="pen-line"></i></button>
+<button class="btn icon tool" data-tool="freetext" data-tip="toolText"><i data-icon="type"></i></button>
+<button class="btn icon tool" data-tool="stamp" data-tip="toolImage"><i data-icon="image-plus"></i></button>
+<button class="btn icon" id="btnSign" data-tip="toolSign"><i data-icon="signature"></i></button>
+<div class="sep"></div>
+<button class="btn icon" id="btnUndo" data-tip="undo"><i data-icon="undo-2"></i></button>
+<button class="btn icon" id="btnRedo" data-tip="redo"><i data-icon="redo-2"></i></button>
+</div>
+<div class="sep"></div>
+<div class="tgroup">
+<button class="btn" id="btnAllTools" data-tip="allToolsTip"><i data-icon="layout-grid"></i><span data-i18n="allTools"></span></button>
+</div>
+<div class="spacer"></div>
+<div class="tgroup pager">
+<button class="btn icon" id="btnPrev" data-tip="prev"><i data-icon="chevron-up"></i></button>
+<button class="btn icon" id="btnNext" data-tip="next"><i data-icon="chevron-down"></i></button>
+<input id="pageInput" class="field num" type="text" inputmode="numeric" value="1" aria-label="Page">
+<span class="muted" id="pageCount">/ 0</span>
+</div>
+<div class="sep"></div>
+<div class="tgroup zoom">
+<button class="btn icon" id="btnZoomOut" data-tip="zoomOut"><i data-icon="zoom-out"></i></button>
+<select id="zoomSelect" class="field" aria-label="Zoom">
+<option value="auto" data-i18n="zAuto"></option>
+<option value="page-actual" data-i18n="zActual"></option>
+<option value="page-fit" data-i18n="zFit"></option>
+<option value="page-width" data-i18n="zWidth"></option>
+<option value="custom" id="zoomCustom" hidden></option>
+<option value="0.5">50%</option><option value="0.75">75%</option><option value="1">100%</option>
+<option value="1.25">125%</option><option value="1.5">150%</option><option value="2">200%</option>
+<option value="3">300%</option><option value="4">400%</option>
+</select>
+<button class="btn icon" id="btnZoomIn" data-tip="zoomIn"><i data-icon="zoom-in"></i></button>
+</div>
+<div class="sep"></div>
+<div class="tgroup">
+<button class="btn icon" id="btnTheme" data-tip="themeToDark"><i data-icon="moon"></i></button>
+<button class="btn icon" id="btnFind" data-tip="find"><i data-icon="search"></i></button>
+<button class="btn icon" id="btnPrint" data-tip="print"><i data-icon="printer"></i></button>
+</div>
+</div>
+
+<div class="tabbar doc-only" id="tabbar" role="tablist"></div>
+
+<div class="tooloptions pickbar" id="pickBar" hidden></div>
+
+<div class="tooloptions editbar" id="editBar" hidden></div>
+
+<div class="tooloptions" id="toolOptions" hidden>
+<span class="label" id="toolLabel"></span>
+<div class="swatches" id="swatches"></div>
+<label class="range" id="sizeWrap"><span id="sizeLabel"></span><input type="range" id="sizeRange"></label>
+<span class="hint muted" id="toolHint"></span>
+<div class="spacer"></div>
+<button class="btn primary sm" id="btnToolDone" data-i18n="done"></button>
+</div>
+
+<div class="launching" id="launching" aria-hidden="true"><span></span></div>
+<main class="body">
+<aside class="fl-sidebar doc-only" id="sidebar" hidden>
+<nav class="rail">
+<button class="btn icon on" data-panel="thumbs" data-tip="thumbnails"><i data-icon="layout-grid"></i></button>
+<button class="btn icon" data-panel="outline" data-tip="bookmarks"><i data-icon="bookmark"></i></button>
+<button class="btn icon" data-panel="comments" data-tip="commentsPanel"><i data-icon="file-pen-line"></i></button>
+</nav>
+<div class="panel">
+<div class="panel-head" id="panelTitle"></div>
+<div class="panel-body" id="thumbs"></div>
+<div class="panel-body" id="outline" hidden></div>
+<div class="panel-body" id="comments" hidden></div>
+</div>
+</aside>
+<section class="stage">
+<div id="viewerContainer" tabindex="0">
+<div id="viewer" class="pdfViewer"></div>
+</div>
+
+<div class="findpanel" id="findPanel" hidden>
+<div class="findrow">
+<i data-icon="search" data-size="16"></i>
+<input id="findInput" type="search" autocomplete="off" spellcheck="false">
+<span class="muted small" id="findCount"></span>
+<button class="btn icon sm" id="findPrev" data-tip="findPrev"><i data-icon="chevron-up"></i></button>
+<button class="btn icon sm" id="findNext" data-tip="findNext"><i data-icon="chevron-down"></i></button>
+<button class="btn icon sm" id="findClose" data-tip="close"><i data-icon="x"></i></button>
+</div>
+<div class="findopts">
+<label><input type="checkbox" id="findAll" checked><span data-i18n="highlightAll"></span></label>
+<label><input type="checkbox" id="findCase"><span data-i18n="matchCase"></span></label>
+<label><input type="checkbox" id="findWords"><span data-i18n="wholeWords"></span></label>
+<label><input type="checkbox" id="findDiacritics"><span data-i18n="matchDiacritics"></span></label>
+</div>
+</div>
+
+<div class="home" id="home" hidden>
+<div class="home-card">
+<svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true"><use href="icon.svg#leaf"/></svg>
+<h1>Flipleaf</h1>
+<p class="muted" data-i18n="tagline"></p>
+<button class="btn primary lg" id="btnOpenHome"><i data-icon="folder-open"></i><span data-i18n="openFile"></span></button>
+<p class="muted small" data-i18n="dropHere"></p>
+<div class="recent" id="recentWrap" hidden>
+<h2 data-i18n="recent"></h2>
+<ul id="recentList"></ul>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<div class="menu" id="menuPopup" role="menu" hidden></div>
+<div class="menu sub" id="subPopup" role="menu" hidden></div>
+<div class="readbar" id="readBar" hidden>
+<i data-icon="volume-2" data-size="16"></i><span data-i18n="reading"></span>
+<button class="btn icon sm" id="readPause"><i data-icon="pause"></i></button>
+<button class="btn icon sm" id="readStop"><i data-icon="x"></i></button>
+</div>
+<dialog class="modal" id="dlg">
+<form method="dialog" class="modal-inner">
+<header><h3 id="dlgTitle"></h3><button class="btn icon sm" value="cancel" formnovalidate><i data-icon="x"></i></button></header>
+<div class="modal-body" id="dlgBody"></div>
+<footer id="dlgFoot"></footer>
+</form>
+</dialog>
+<div id="dropHint" class="drop-hint" hidden><div data-i18n="dropHint"></div></div>
+<div id="toast" class="toast" role="status" hidden></div>
+<div id="tooltip" class="fl-tip" hidden></div>
+<div id="printContainer" aria-hidden="true"></div>
+<input type="file" id="fileInput" accept="application/pdf,.pdf" hidden>
+<input type="file" id="imageInput" accept="image/*" hidden>
+</body>
+</html>
