@@ -1,0 +1,16 @@
+{
+  "name": "Flipleaf",
+  "short_name": "Flipleaf",
+  "description": "A feather-light, private PDF reader.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#e9ece8",
+  "theme_color": "#1f2a24",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "file_handlers": [
+    { "action": "./", "accept": { "application/pdf": [".pdf"] } }
+  ]
+}

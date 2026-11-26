@@ -1,0 +1,39 @@
+{
+  "version": "1.17.9",
+  "notes": "### What's new\n- Organize pages: drag over the empty space to select several pages with a rectangle, like files on the desktop (Ctrl or Shift adds to the selection)\n- Edit PDF: after moving, pasting or closing a gap the view stays exactly on the same page and place\n- Edit PDF: copy and paste also work with the system clipboard \u2014 text copied in Edit PDF can be pasted into other programs, and text or pictures copied anywhere can be pasted onto the page at the cursor\n- Edit PDF: selecting items one by one with Ctrl+click no longer makes the window flicker\n\n### Downloads\n\n| | |\n|:--|:--|\n| **Windows** 10 / 11 | [`Flipleaf-1.17.9-Windows.exe`](https://github.com/vasileiostripolidis/flipleaf/releases/download/v1.17.9/Flipleaf-1.17.9-Windows.exe) |\n| **macOS** 11+ (Apple silicon & Intel) | [`Flipleaf-1.17.9-macOS.dmg`](https://github.com/vasileiostripolidis/flipleaf/releases/download/v1.17.9/Flipleaf-1.17.9-macOS.dmg) |\n| **Linux** (any distribution) | [`Flipleaf-1.17.9-Linux.AppImage`](https://github.com/vasileiostripolidis/flipleaf/releases/download/v1.17.9/Flipleaf-1.17.9-Linux.AppImage) |\n| **Web** | [Open in your browser](https://vasileiostripolidis.github.io/flipleaf/) |\n\n> [!NOTE]\n> Already installed? Flipleaf updates itself: *Help \u2192 Check for updates\u2026*\n>\n> First install: builds are not code-signed yet. **Windows:** *More info \u2192 Run anyway*. **macOS:** right-click the app \u2192 *Open*.\n\nOffline \u00b7 no telemetry \u00b7 [Privacy](https://github.com/vasileiostripolidis/flipleaf/blob/main/legal/PRIVACY.md) \u00b7 [License](https://github.com/vasileiostripolidis/flipleaf/blob/main/legal/EULA.md)",
+  "pub_date": "2026-11-26T08:54:09Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSK1pmS1FmeUVYN1ZmMkMvNDZ3eG9lZVBFQVZJZnY5Wm0xc05ZamVLQ3JRejdBM3BnMXl4M2NRT0tGTXFkU0FkZnFpeEFrVWwrbDh6MnZPdVVjSFRxVVUvMG9jRGxtaUFNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NjgzMDg3CWZpbGU6RmxpcGxlYWZfMS4xNy45X3g2NC1zZXR1cC5leGUJdmVyc2lvbjoxLjE3LjkKSXhTVUhaOUl5QTl5NnI4ditObVRZK0ZwSDFBTjdwVUtkWEJjM2E0NEtVbmJqdmhuMzNURTFjU2E3SkZtdDFpcldteG00RnI5VlAvbmZxbmlIYnhoRFE9PQo=",
+      "url": "https://github.com/vasileiostripolidis/flipleaf/releases/download/v1.17.9/Flipleaf-1.17.9-Windows.exe"
+    },
+    "windows-x86_64-nsis": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSK1pmS1FmeUVYN1ZmMkMvNDZ3eG9lZVBFQVZJZnY5Wm0xc05ZamVLQ3JRejdBM3BnMXl4M2NRT0tGTXFkU0FkZnFpeEFrVWwrbDh6MnZPdVVjSFRxVVUvMG9jRGxtaUFNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NjgzMDg3CWZpbGU6RmxpcGxlYWZfMS4xNy45X3g2NC1zZXR1cC5leGUJdmVyc2lvbjoxLjE3LjkKSXhTVUhaOUl5QTl5NnI4ditObVRZK0ZwSDFBTjdwVUtkWEJjM2E0NEtVbmJqdmhuMzNURTFjU2E3SkZtdDFpcldteG00RnI5VlAvbmZxbmlIYnhoRFE9PQo=",
+      "url": "https://github.com/vasileiostripolidis/flipleaf/releases/download/v1.17.9/Flipleaf-1.17.9-Windows.exe"
+    },
+    "darwin-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSK1pmS1FmeUVYN1Zua2VRNHphVi8wYkRkcitXWXRyVXQvNWZmUEZ5ZExXT2drbWx0bEJDL0tNcUpLNTF6UitSb1VHR1VtVkQ0Vm9vK0h1WHd0RmRMeDljK2FxM0U1WndrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NjgzMjMxCWZpbGU6RmxpcGxlYWYuYXBwLnRhci5negl2ZXJzaW9uOjEuMTcuOQpQekFiN1JXSjBSOGQwZVo2TlhKYVByU2lhVU9mYllXQ3RDemFpUlZBU3Z2VmNXamtVVWJKRXBXZTdyQUVuMStUc2hDYnk2aHBCWWtOUFFrZTF4bUhCUT09Cg==",
+      "url": "https://vasileiostripolidis.github.io/flipleaf/updates/Flipleaf-macOS.app.tar.gz"
+    },
+    "darwin-aarch64-app": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSK1pmS1FmeUVYN1Zua2VRNHphVi8wYkRkcitXWXRyVXQvNWZmUEZ5ZExXT2drbWx0bEJDL0tNcUpLNTF6UitSb1VHR1VtVkQ0Vm9vK0h1WHd0RmRMeDljK2FxM0U1WndrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NjgzMjMxCWZpbGU6RmxpcGxlYWYuYXBwLnRhci5negl2ZXJzaW9uOjEuMTcuOQpQekFiN1JXSjBSOGQwZVo2TlhKYVByU2lhVU9mYllXQ3RDemFpUlZBU3Z2VmNXamtVVWJKRXBXZTdyQUVuMStUc2hDYnk2aHBCWWtOUFFrZTF4bUhCUT09Cg==",
+      "url": "https://vasileiostripolidis.github.io/flipleaf/updates/Flipleaf-macOS.app.tar.gz"
+    },
+    "darwin-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSK1pmS1FmeUVYN1Zua2VRNHphVi8wYkRkcitXWXRyVXQvNWZmUEZ5ZExXT2drbWx0bEJDL0tNcUpLNTF6UitSb1VHR1VtVkQ0Vm9vK0h1WHd0RmRMeDljK2FxM0U1WndrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NjgzMjMxCWZpbGU6RmxpcGxlYWYuYXBwLnRhci5negl2ZXJzaW9uOjEuMTcuOQpQekFiN1JXSjBSOGQwZVo2TlhKYVByU2lhVU9mYllXQ3RDemFpUlZBU3Z2VmNXamtVVWJKRXBXZTdyQUVuMStUc2hDYnk2aHBCWWtOUFFrZTF4bUhCUT09Cg==",
+      "url": "https://vasileiostripolidis.github.io/flipleaf/updates/Flipleaf-macOS.app.tar.gz"
+    },
+    "darwin-x86_64-app": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSK1pmS1FmeUVYN1Zua2VRNHphVi8wYkRkcitXWXRyVXQvNWZmUEZ5ZExXT2drbWx0bEJDL0tNcUpLNTF6UitSb1VHR1VtVkQ0Vm9vK0h1WHd0RmRMeDljK2FxM0U1WndrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NjgzMjMxCWZpbGU6RmxpcGxlYWYuYXBwLnRhci5negl2ZXJzaW9uOjEuMTcuOQpQekFiN1JXSjBSOGQwZVo2TlhKYVByU2lhVU9mYllXQ3RDemFpUlZBU3Z2VmNXamtVVWJKRXBXZTdyQUVuMStUc2hDYnk2aHBCWWtOUFFrZTF4bUhCUT09Cg==",
+      "url": "https://vasileiostripolidis.github.io/flipleaf/updates/Flipleaf-macOS.app.tar.gz"
+    },
+    "linux-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSK1pmS1FmeUVYN2RFQTRxUDdmTTBMWmRieGlsK3dhR1JGOTBaWlVDUUl5dUFKTlFvR3lkSEZNamRlYTJiQmFsd0Z2Z0ZDc25iSFNXcloybVdsOW1YQVBMWUF6ZGhkaUFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NjgzMTMwCWZpbGU6RmxpcGxlYWZfMS4xNy45X2FtZDY0LkFwcEltYWdlCXZlcnNpb246MS4xNy45CmMwRSs4MnlqWVlUZWg0eldEcERlc1oya2FjUzFpZzlWRDVmNldFN0s3NTBwOEdZazk0RlNoK1pGcFBrbTVjamFZQkRJWXZqN2dYZEEyTkRsK1orWUFRPT0K",
+      "url": "https://github.com/vasileiostripolidis/flipleaf/releases/download/v1.17.9/Flipleaf-1.17.9-Linux.AppImage"
+    },
+    "linux-x86_64-appimage": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSK1pmS1FmeUVYN2RFQTRxUDdmTTBMWmRieGlsK3dhR1JGOTBaWlVDUUl5dUFKTlFvR3lkSEZNamRlYTJiQmFsd0Z2Z0ZDc25iSFNXcloybVdsOW1YQVBMWUF6ZGhkaUFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1NjgzMTMwCWZpbGU6RmxpcGxlYWZfMS4xNy45X2FtZDY0LkFwcEltYWdlCXZlcnNpb246MS4xNy45CmMwRSs4MnlqWVlUZWg0eldEcERlc1oya2FjUzFpZzlWRDVmNldFN0s3NTBwOEdZazk0RlNoK1pGcFBrbTVjamFZQkRJWXZqN2dYZEEyTkRsK1orWUFRPT0K",
+      "url": "https://github.com/vasileiostripolidis/flipleaf/releases/download/v1.17.9/Flipleaf-1.17.9-Linux.AppImage"
+    }
+  }
+}
